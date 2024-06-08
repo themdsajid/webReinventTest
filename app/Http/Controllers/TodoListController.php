@@ -43,7 +43,8 @@ class TodoListController extends Controller
             'task_name' => $request->task_name,
         ]);
 
-        return redirect()->back();
+        // return redirect()->back();
+        return response()->json($todo);
     }
 
     /**
@@ -99,6 +100,7 @@ class TodoListController extends Controller
         $todo = TodoList::find($id);
         $todo->delete();
 
+        // return response()->json(['success' => true]);
         return redirect()->back();
     }
 }
